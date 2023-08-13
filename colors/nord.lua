@@ -286,6 +286,8 @@ vim.api.nvim_set_hl(0, "Tag", { fg = nord4_gui })
 vim.api.nvim_set_hl(0, "Todo", { fg = nord13_gui, bg = "NONE", ctermfg = nord13_term, ctermbg = "NONE" })
 vim.api.nvim_set_hl(0, "Type", { fg = nord9_gui, ctermfg = nord9_term })
 vim.api.nvim_set_hl(0, "Typedef", { fg = nord9_gui, ctermfg = nord9_term })
+vim.api.nvim_set_hl(0, "Underlined",
+	{ fg = nord8_gui, ctermfg = nord8_term, undercurl = true, cterm = { undercurl = true } })
 
 -- Setup function
 local M = {}
