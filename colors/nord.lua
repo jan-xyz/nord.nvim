@@ -205,6 +205,7 @@ vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = nord13_gui, ctermfg = nord13_ter
 vim.api.nvim_set_hl(0, "DiagnosticError", { fg = nord11_gui, ctermfg = nord11_term })
 vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = nord8_gui, ctermfg = nord8_term })
 vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = nord10_gui, ctermfg = nord10_term })
+vim.api.nvim_set_hl(0, "DiagnosticOk", { fg = nord14_gui, ctermfg = nord14_term })
 vim.api.nvim_set_hl(
 	0,
 	"DiagnosticUnderlineWarn",
