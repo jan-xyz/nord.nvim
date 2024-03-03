@@ -1,5 +1,7 @@
 -- Port of https://github.com/nordtheme/vim
 
+local vim = vim
+
 local nord0_gui = "#2E3440"
 local nord1_gui = "#3B4252"
 local nord2_gui = "#434C5E"
@@ -232,6 +234,15 @@ vim.api.nvim_set_hl(0, "DiffAdd", { fg = nord14_gui, ctermfg = nord14_term })
 vim.api.nvim_set_hl(0, "DiffChange", { fg = nord13_gui, ctermfg = nord13_term })
 vim.api.nvim_set_hl(0, "DiffText", { fg = nord11_gui, ctermfg = nord11_term })
 vim.api.nvim_set_hl(0, "DiffDelete", { fg = nord11_gui, ctermfg = nord11_term })
+vim.api.nvim_set_hl(0, "@diff.plus", { link = "DiffAdd" })
+vim.api.nvim_set_hl(0, "@diff.minus", { link = "DiffDelete" })
+vim.api.nvim_set_hl(0, "@text.diff.add", { link = "DiffAdd" })
+vim.api.nvim_set_hl(0, "@text.diff.delete", { link = "DiffDelete" })
+-- legacy regex parser Groups
+-- These should not be necessary anymore, but some plugins are still using
+-- the legacy regex parser.
+-- vim.api.nvim_set_hl(0, "diffAdded", { link = "DiffAdd" })
+-- vim.api.nvim_set_hl(0, "diffRemoved", { link = "DiffDelete" })
 
 -- +- Lsp -+
 vim.api.nvim_set_hl(0, "LspReferenceText", { bg = nord3_gui, ctermbg = nord3_term })
@@ -257,19 +268,19 @@ vim.api.nvim_set_hl(
 vim.api.nvim_set_hl(0, "Conceal", { bg = "NONE", ctermbg = "NONE" })
 vim.api.nvim_set_hl(0, "Conditional", { fg = nord9_gui, ctermfg = nord9_term })
 vim.api.nvim_set_hl(0, "Constant", { fg = nord4_gui, ctermfg = "NONE" })
-vim.api.nvim_set_hl(0, "Decorator", { fg = nord12_gui, ctermfg = nord12_term, link = "Annotation" })
-vim.api.nvim_set_hl(0, "Define", { fg = nord9_gui, ctermfg = nord9_term, link = "Macro" })
+vim.api.nvim_set_hl(0, "Decorator", { fg = nord12_gui, ctermfg = nord12_term })
+vim.api.nvim_set_hl(0, "Define", { fg = nord9_gui, ctermfg = nord9_term })
 vim.api.nvim_set_hl(0, "Delimiter", { fg = nord6_gui, ctermfg = nord6_term })
 vim.api.nvim_set_hl(0, "Exception", { fg = nord9_gui, ctermfg = nord9_term })
 vim.api.nvim_set_hl(0, "Float", { fg = nord15_gui, ctermfg = nord15_term })
 vim.api.nvim_set_hl(0, "Function", { fg = nord8_gui, ctermfg = nord8_term })
-vim.api.nvim_set_hl(0, "Identifier", { fg = nord4_gui, ctermfg = "NONE", link = "Variable" })
+vim.api.nvim_set_hl(0, "Identifier", { fg = nord4_gui, ctermfg = "NONE" })
 vim.api.nvim_set_hl(0, "Include", { fg = nord9_gui, ctermfg = nord9_term })
 vim.api.nvim_set_hl(0, "Keyword", { fg = nord9_gui, ctermfg = nord9_term })
 vim.api.nvim_set_hl(0, "Label", { fg = nord9_gui, ctermfg = nord9_term })
 vim.api.nvim_set_hl(0, "Number", { fg = nord15_gui, ctermfg = nord15_term })
 vim.api.nvim_set_hl(0, "Operator", { fg = nord9_gui, ctermfg = nord9_term })
-vim.api.nvim_set_hl(0, "PreProc", { fg = nord9_gui, ctermfg = nord9_term, link = "PreCondit" })
+vim.api.nvim_set_hl(0, "PreProc", { fg = nord9_gui, ctermfg = nord9_term })
 vim.api.nvim_set_hl(0, "Repeat", { fg = nord9_gui, ctermfg = nord9_term })
 vim.api.nvim_set_hl(0, "Special", { fg = nord4_gui, ctermfg = "NONE" })
 vim.api.nvim_set_hl(0, "SpecialChar", { fg = nord13_gui, ctermfg = nord13_term })
@@ -288,6 +299,10 @@ vim.api.nvim_set_hl(0, "Type", { fg = nord9_gui, ctermfg = nord9_term })
 vim.api.nvim_set_hl(0, "Typedef", { fg = nord9_gui, ctermfg = nord9_term })
 vim.api.nvim_set_hl(0, "Underlined",
 	{ fg = nord8_gui, ctermfg = nord8_term, undercurl = true, cterm = { undercurl = true } })
+vim.api.nvim_set_hl(0, "Annotation", { link = "Decorator" })
+vim.api.nvim_set_hl(0, "Macro", { link = "Define" })
+vim.api.nvim_set_hl(0, "Variable", { link = "Identifier" })
+vim.api.nvim_set_hl(0, "PreCondit", { link = "PreProc" })
 
 -- Setup function
 local M = {}
