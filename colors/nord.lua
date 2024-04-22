@@ -80,7 +80,7 @@ vim.api.nvim_set_hl(0, "LineNr", { fg = nord3_gui, bg = "NONE", ctermfg = nord3_
 vim.api.nvim_set_hl(0, "MatchParen", { fg = nord8_gui, bg = nord3_gui, ctermfg = nord8_term, ctermbg = nord3_term })
 vim.api.nvim_set_hl(0, "NonText", { fg = nord2_gui, ctermfg = nord3_term })
 vim.api.nvim_set_hl(0, "Normal", { fg = nord4_gui, bg = nord0_gui, ctermfg = "NONE", ctermbg = "NONE" })
-vim.api.nvim_set_hl(0, "Pmenu", { fg = nord4_gui, bg = nord2_gui, ctermfg = "NONE", ctermbg = nord1_term })
+vim.api.nvim_set_hl(0, "Pmenu", { fg = nord4_gui, bg = nord1_gui, ctermfg = "NONE", ctermbg = nord1_term })
 vim.api.nvim_set_hl(0, "PmenuSbar", { fg = nord4_gui, bg = nord2_gui, ctermfg = "NONE", ctermbg = nord1_term })
 vim.api.nvim_set_hl(0, "PmenuSel", { fg = nord8_gui, bg = nord3_gui, ctermfg = nord8_term, ctermbg = nord3_term })
 vim.api.nvim_set_hl(0, "PmenuThumb", { fg = nord8_gui, bg = nord3_gui, ctermfg = "NONE", ctermbg = nord3_term })
@@ -233,19 +233,20 @@ vim.api.nvim_set_hl(
 )
 
 -- +- Git -+
-vim.api.nvim_set_hl(0, "DiffAdd", { fg = nord14_gui, ctermfg = nord14_term })
-vim.api.nvim_set_hl(0, "DiffChange", { fg = nord13_gui, ctermfg = nord13_term })
+vim.api.nvim_set_hl(0, "Added", { fg = nord14_gui, ctermfg = nord14_term })
+vim.api.nvim_set_hl(0, "Removed", { fg = nord11_gui, ctermfg = nord11_term })
+vim.api.nvim_set_hl(0, "Changed", { fg = nord13_gui, ctermfg = nord13_term })
 vim.api.nvim_set_hl(0, "DiffText", { fg = nord11_gui, ctermfg = nord11_term })
-vim.api.nvim_set_hl(0, "DiffDelete", { fg = nord11_gui, ctermfg = nord11_term })
-vim.api.nvim_set_hl(0, "@diff.plus", { link = "DiffAdd" })
-vim.api.nvim_set_hl(0, "@diff.minus", { link = "DiffDelete" })
-vim.api.nvim_set_hl(0, "@text.diff.add", { link = "DiffAdd" })
-vim.api.nvim_set_hl(0, "@text.diff.delete", { link = "DiffDelete" })
--- legacy regex parser Groups
--- These should not be necessary anymore, but some plugins are still using
--- the legacy regex parser.
--- vim.api.nvim_set_hl(0, "diffAdded", { link = "DiffAdd" })
--- vim.api.nvim_set_hl(0, "diffRemoved", { link = "DiffDelete" })
+vim.api.nvim_set_hl(0, "DiffAdd", { link = "Added" })
+vim.api.nvim_set_hl(0, "@diff.plus", { link = "Added" })
+vim.api.nvim_set_hl(0, "@text.diff.add", { link = "Added" })
+
+vim.api.nvim_set_hl(0, "DiffChange", { link = "Changed" })
+vim.api.nvim_set_hl(0, "@diff.changed", { link = "Changed" })
+
+vim.api.nvim_set_hl(0, "DiffDelete", { link = "Removed" })
+vim.api.nvim_set_hl(0, "@diff.minus", { link = "Removed" })
+vim.api.nvim_set_hl(0, "@text.diff.delete", { link = "Removed" })
 
 -- +- Lsp -+
 vim.api.nvim_set_hl(0, "LspReferenceText", { bg = nord3_gui, ctermbg = nord3_term })
