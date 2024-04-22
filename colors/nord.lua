@@ -202,6 +202,9 @@ else
 	vim.api.nvim_set_hl(0, "VertSplit", { fg = nord2_gui, bg = nord0_gui, ctermfg = nord3_term })
 end
 
+-- +--- Float ---+
+vim.api.nvim_set_hl(0, "NormalFloat", { link = "Pmenu" })
+
 -- +- Diagnostics -+
 vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = nord13_gui, ctermfg = nord13_term })
 vim.api.nvim_set_hl(0, "DiagnosticError", { fg = nord11_gui, ctermfg = nord11_term })
