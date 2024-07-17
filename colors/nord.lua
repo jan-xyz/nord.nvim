@@ -259,6 +259,11 @@ vim.api.nvim_set_hl(
 )
 vim.api.nvim_set_hl(0, "LspCodeLens", { fg = nord3_gui_bright, ctermfg = nord3_term })
 
+-- this is a hack to avoid the LSP overriding the special comment syntax
+-- https://github.com/stsewd/tree-sitter-comment/issues/22
+-- https://github.com/nvim-treesitter/nvim-treesitter/pull/4983
+vim.api.nvim_set_hl(0, "@lsp.type.comment", {})
+
 -- +----------------------+
 -- + Language Base Groups +
 -- +----------------------+
